@@ -1,12 +1,250 @@
 <!DOCTYPE html>
-  <html lang="en">
-  <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Support</title>
-  </head>
-  <body>
-      <h1>Support</h1>
-      <p>Content coming soon.</p>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orbite — Support</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bleu-nuit: #0D0E2B;
+            --bleu-nuit-light: #1A1B4B;
+            --violet: #6B4CE6;
+            --violet-light: #9B7FE6;
+            --cyan: #00E5CC;
+            --cyan-dim: rgba(0, 229, 204, 0.15);
+            --text-primary: #E8E8F0;
+            --text-secondary: #9A9AB0;
+            --surface: rgba(255, 255, 255, 0.04);
+            --border: rgba(255, 255, 255, 0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bleu-nuit);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: -30vh;
+            right: -20vw;
+            width: 80vw;
+            height: 80vw;
+            max-width: 900px;
+            max-height: 900px;
+            border: 1px solid rgba(107, 76, 230, 0.08);
+            border-radius: 50%;
+            transform: rotate(-25deg);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 60px 24px 80px;
+        }
+
+        .header { margin-bottom: 56px; }
+
+        .header-brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 32px;
+            text-decoration: none;
+        }
+
+        .orbit-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--violet), var(--violet-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .orbit-icon::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--cyan);
+            border-radius: 50%;
+            box-shadow: 0 0 12px var(--cyan);
+        }
+
+        .header-brand span {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            letter-spacing: 0.5px;
+        }
+
+        h1 {
+            font-size: clamp(28px, 5vw, 40px);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--violet-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header-meta {
+            font-size: 15px;
+            color: var(--text-secondary);
+            max-width: 500px;
+        }
+
+        section { margin-bottom: 40px; }
+
+        h2 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--cyan);
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+
+        p strong { color: var(--text-primary); font-weight: 500; }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 12px;
+        }
+
+        .card-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-title .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--violet);
+        }
+
+        .card p { margin-bottom: 0; font-size: 14px; }
+
+        .highlight {
+            background: var(--cyan-dim);
+            border: 1px solid rgba(0, 229, 204, 0.2);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 24px 0;
+        }
+
+        .highlight p { color: var(--text-primary); margin-bottom: 0; font-size: 14px; }
+        .highlight strong { color: var(--cyan); }
+
+        a { color: var(--violet-light); text-decoration: none; }
+        a:hover { color: var(--cyan); }
+
+        .footer {
+            margin-top: 64px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .footer p { font-size: 13px; color: var(--text-secondary); }
+
+        @media (max-width: 480px) {
+            .container { padding: 40px 18px 60px; }
+            .card { padding: 16px 18px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-brand">
+                <div class="orbit-icon"></div>
+                <span>Orbite</span>
+            </div>
+            <h1>Support</h1>
+            <p class="header-meta">Vous avez une question ou un problème avec Orbite ? Voici les réponses aux questions les plus courantes.</p>
+        </header>
+
+        <section>
+            <h2>Questions fréquentes</h2>
+
+            <div class="card">
+                <div class="card-title"><span class="dot"></span>Où sont stockées mes données ?</div>
+                <p>Toutes vos données sont stockées uniquement sur votre appareil. Si vous activez iCloud, elles sont synchronisées entre vos appareils Apple via le service CloudKit d'Apple. Orbite n'a aucun serveur.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title"><span class="dot"></span>Comment récupérer mes données si je change d'iPhone ?</div>
+                <p>Si iCloud est activé, vos données se synchronisent automatiquement sur votre nouvel appareil dès que vous installez Orbite. Sinon, utilisez une sauvegarde iTunes/Finder pour transférer vos données.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title"><span class="dot"></span>La dictée vocale envoie-t-elle mes données quelque part ?</div>
+                <p>La transcription vocale se fait prioritairement sur votre appareil grâce au Speech Framework d'Apple. Aucun fichier audio n'est conservé ni transmis par Orbite. Seul le texte transcrit est enregistré dans vos notes.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title"><span class="dot"></span>Comment supprimer toutes mes données ?</div>
+                <p>Allez dans Orbite → Réglages → Supprimer toutes les données. Cette action est irréversible. Vous pouvez aussi désinstaller l'application, ce qui supprime toutes les données locales.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title"><span class="dot"></span>L'app est-elle conforme au secret professionnel ?</div>
+                <p>Orbite est conçu pour le contexte professionnel du travail social. Aucune donnée ne transite par des serveurs tiers. Nous recommandons d'activer le verrouillage par code ou Face ID sur votre appareil et d'utiliser la fonction d'alias pour anonymiser les profils si nécessaire.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title"><span class="dot"></span>Quel est le lien avec Tremplin ?</div>
+                <p>Tremplin est l'app destinée aux jeunes en parcours d'autonomie. Orbite est l'app destinée aux éducateurs qui les accompagnent. Les deux apps font partie du même écosystème mais fonctionnent de manière indépendante.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Contacter le support</h2>
+            <div class="highlight">
+                <p>Pour toute question, suggestion ou signalement de bug, contactez le développeur par email via l'adresse indiquée sur la <strong><a href="https://apps.apple.com/app/orbite/id6761691097">fiche App Store</a></strong> d'Orbite.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Liens utiles</h2>
+            <p><a href="/orbite/privacy">Politique de confidentialité</a></p>
+            <p><a href="https://apps.apple.com/app/orbite/id6761691097">Orbite sur l'App Store</a></p>
+        </section>
+
+        <footer class="footer">
+            <p>© 2025 Arnaud Clavien · <a href="https://apps.apple.com/app/orbite/id6761691097">Orbite sur l'App Store</a></p>
+        </footer>
+    </div>
 </body>
 </html>
