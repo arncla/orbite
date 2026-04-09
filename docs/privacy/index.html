@@ -1,12 +1,368 @@
 <!DOCTYPE html>
-  <html lang="en">
-  <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Privacy Policy</title>
-  </head>
-  <body>
-      <h1>Privacy Policy</h1>
-      <p>Content coming soon.</p>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orbite — Politique de confidentialité</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bleu-nuit: #0D0E2B;
+            --bleu-nuit-light: #1A1B4B;
+            --violet: #6B4CE6;
+            --violet-light: #9B7FE6;
+            --cyan: #00E5CC;
+            --cyan-dim: rgba(0, 229, 204, 0.15);
+            --text-primary: #E8E8F0;
+            --text-secondary: #9A9AB0;
+            --surface: rgba(255, 255, 255, 0.04);
+            --border: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bleu-nuit);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Orbital ring decoration */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -30vh;
+            right: -20vw;
+            width: 80vw;
+            height: 80vw;
+            max-width: 900px;
+            max-height: 900px;
+            border: 1px solid rgba(107, 76, 230, 0.08);
+            border-radius: 50%;
+            transform: rotate(-25deg);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -40vh;
+            left: -25vw;
+            width: 90vw;
+            height: 90vw;
+            max-width: 1000px;
+            max-height: 1000px;
+            border: 1px solid rgba(0, 229, 204, 0.05);
+            border-radius: 50%;
+            transform: rotate(15deg);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 60px 24px 80px;
+        }
+
+        /* Header */
+        .header {
+            margin-bottom: 56px;
+        }
+
+        .header-brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 32px;
+            text-decoration: none;
+        }
+
+        .orbit-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--violet), var(--violet-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .orbit-icon::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--cyan);
+            border-radius: 50%;
+            box-shadow: 0 0 12px var(--cyan);
+        }
+
+        .header-brand span {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            letter-spacing: 0.5px;
+        }
+
+        h1 {
+            font-size: clamp(28px, 5vw, 40px);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--violet-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header-meta {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--cyan);
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+
+        p strong {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* Info cards */
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 12px;
+        }
+
+        .card-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-title .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--violet);
+        }
+
+        .card p {
+            margin-bottom: 0;
+            font-size: 14px;
+        }
+
+        /* Highlight box */
+        .highlight {
+            background: var(--cyan-dim);
+            border: 1px solid rgba(0, 229, 204, 0.2);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 24px 0;
+        }
+
+        .highlight p {
+            color: var(--text-primary);
+            margin-bottom: 0;
+            font-size: 14px;
+        }
+
+        .highlight strong {
+            color: var(--cyan);
+        }
+
+        /* Not collected badge */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(52, 199, 89, 0.12);
+            border: 1px solid rgba(52, 199, 89, 0.25);
+            color: #34C759;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+        }
+
+        .badge::before {
+            content: '✓';
+            font-size: 12px;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 64px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .footer p {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .footer a {
+            color: var(--violet-light);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: var(--cyan);
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .container {
+                padding: 40px 18px 60px;
+            }
+            section {
+                margin-bottom: 32px;
+            }
+            .card {
+                padding: 16px 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-brand">
+                <div class="orbit-icon"></div>
+                <span>Orbite</span>
+            </div>
+            <h1>Politique de confidentialité</h1>
+            <p class="header-meta">Dernière mise à jour : avril 2026</p>
+        </header>
+
+        <section>
+            <h2>Responsable</h2>
+            <p><strong>Arnaud Clavien</strong><br>Yverdon-les-Bains, Suisse</p>
+        </section>
+
+        <section>
+            <h2>Principe fondamental</h2>
+            <div class="highlight">
+                <p><strong>Orbite ne collecte aucune donnée personnelle.</strong> Toutes vos données sont stockées exclusivement sur votre appareil. Aucun compte à créer, aucun serveur, aucune télémétrie.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Données stockées localement</h2>
+            <p>Les données suivantes sont créées et conservées uniquement sur votre appareil, via la technologie SwiftData d'Apple.</p>
+
+            <div class="card">
+                <div class="card-title"><span class="dot"></span>Profils de bénéficiaires</div>
+                <p>Prénoms, alias, photos, dates de suivi. Ces informations ne quittent jamais votre appareil.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title"><span class="dot"></span>Notes de suivi</div>
+                <p>Texte, tags, signaux, dates. Les notes dictées sont transcrites directement sur votre appareil.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title"><span class="dot"></span>Objectifs et réseau</div>
+                <p>Objectifs éducatifs, contacts professionnels du réseau du bénéficiaire.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title"><span class="dot"></span>Journal réflexif</div>
+                <p>Entrées personnelles, humeurs, thèmes, auto-évaluations de pratique.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title"><span class="dot"></span>Événements et préférences</div>
+                <p>Calendrier de suivi, réglages de l'application.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Synchronisation iCloud</h2>
+            <p>Si vous activez iCloud sur votre appareil, vos données Orbite peuvent être synchronisées entre vos appareils Apple via le service CloudKit d'Apple. Cette synchronisation est gérée par Apple selon sa propre <strong>politique de confidentialité</strong>. Orbite n'a aucun accès à vos données iCloud côté serveur.</p>
+        </section>
+
+        <section>
+            <h2>Reconnaissance vocale</h2>
+            <p>La dictée vocale utilise le <strong>Speech Framework d'Apple</strong>. La reconnaissance se fait prioritairement sur votre appareil (on-device). Dans certains cas, Apple peut traiter la reconnaissance sur ses serveurs selon sa politique de confidentialité.</p>
+            <p>Orbite n'enregistre pas, ne stocke pas et ne transmet pas vos fichiers audio. Seul le texte transcrit est conservé dans vos notes.</p>
+        </section>
+
+        <section>
+            <h2>Données non collectées</h2>
+            <div class="badge">Aucune collecte de données</div>
+            <p>Orbite ne collecte et ne transmet aucune des données suivantes :</p>
+            <p>Pas d'adresse email. Pas de données de localisation. Pas de cookies. Pas d'identifiants publicitaires. Pas de tracking analytique. Pas de partage avec des tiers. Pas de compte utilisateur.</p>
+        </section>
+
+        <section>
+            <h2>Achats intégrés</h2>
+            <p>Les abonnements sont gérés par Apple via StoreKit. Les informations de paiement sont traitées exclusivement par Apple selon sa politique de confidentialité. Orbite n'a jamais accès à vos informations de paiement.</p>
+        </section>
+
+        <section>
+            <h2>Sécurité</h2>
+            <p>Vos données sont protégées par le <strong>chiffrement natif d'iOS</strong>. Les éventuelles clés API (pour les fonctionnalités d'intelligence artificielle futures) seront stockées dans le <strong>Keychain sécurisé</strong> d'Apple.</p>
+        </section>
+
+        <section>
+            <h2>Suppression des données</h2>
+            <p>Vous pouvez supprimer l'ensemble de vos données à tout moment depuis les réglages de l'application. La désinstallation d'Orbite supprime toutes les données locales. Pour les données synchronisées via iCloud, vous pouvez les supprimer depuis les réglages iCloud de votre appareil.</p>
+        </section>
+
+        <section>
+            <h2>Modifications</h2>
+            <p>Toute modification de cette politique sera publiée sur cette page avec la date de mise à jour. Les changements significatifs seront signalés dans les notes de mise à jour de l'application.</p>
+        </section>
+
+        <section>
+            <h2>Contact</h2>
+            <p>Pour toute question relative à la confidentialité de vos données dans Orbite, vous pouvez contacter le développeur via l'adresse email indiquée sur la fiche App Store.</p>
+        </section>
+
+        <footer class="footer">
+            <p>© 2025 Arnaud Clavien · <a href="https://apps.apple.com/app/orbite/id6761691097">Orbite sur l'App Store</a></p>
+        </footer>
+    </div>
 </body>
 </html>
